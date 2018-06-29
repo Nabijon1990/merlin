@@ -1,5 +1,7 @@
 package com.novoda.merlin;
 
+import java.util.Iterator;
+
 class ConnectCallbackManager extends MerlinCallbackManager<Connectable> {
 
     ConnectCallbackManager(Register<Connectable> register) {
@@ -8,7 +10,8 @@ class ConnectCallbackManager extends MerlinCallbackManager<Connectable> {
 
     void onConnect() {
         Logger.d("onConnect");
-        for (Connectable connectable : registerables()) {
+        for (Iterator<Connectable> iter = registerables().iterator(); iter.hasNext();) {
+            Connectable connectable = iter.next();
             connectable.onConnect();
         }
     }

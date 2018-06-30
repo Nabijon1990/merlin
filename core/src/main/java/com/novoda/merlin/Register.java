@@ -1,14 +1,14 @@
 package com.novoda.merlin;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 class Register<T extends Registerable> {
 
-    private final List<T> registerables;
+    private final CopyOnWriteArrayList<T> registerables;
 
     Register() {
-        registerables = new ArrayList<>();
+        registerables = new CopyOnWriteArrayList<>();
     }
 
     void register(T registerable) {
